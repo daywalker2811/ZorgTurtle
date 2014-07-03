@@ -1,0 +1,28 @@
+function hasEnoughtFuel()
+  return turtle.getFuelLevel() > 0  
+end
+
+-- go forward if the turtle has enought fuel
+function step()
+  if hasEnoughtFuel() then
+    turtle.forward()
+  else
+    turtle.refuel(searchFuelInInventory())
+end
+
+
+-- look into turtle's inventory if it contains fuel
+function searchFuelInInventory()
+  for i = 1, 16 do
+    turtel.select(i)
+    if turtel.refuel(0) then
+      return i
+    end
+  end
+end
+
+-- main
+while turtle.detect() do
+  turtle.dig()
+  step()
+end
