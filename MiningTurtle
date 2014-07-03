@@ -7,9 +7,10 @@ function step()
   if hasEnoughtFuel() then
     turtle.forward()
   else
-    turtle.refuel(searchFuelInInventory())
+    position = searchFuelInInventory()
+    turtle.refuel(position)
+  end
 end
-
 
 -- look into turtle's inventory if it contains fuel
 function searchFuelInInventory()
@@ -22,7 +23,16 @@ function searchFuelInInventory()
 end
 
 -- main
-while turtle.detect() do
-  turtle.dig()
-  step()
+for i = 1, 21 do
+  if turtle.detect() then
+    turtle.dig()
+    step()
+  end
 end
+
+turtle.turnRight()
+
+for i = 1, 21 do
+  -- todo tbd
+end
+
