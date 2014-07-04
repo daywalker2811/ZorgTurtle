@@ -32,11 +32,10 @@ function dig()
 end
 
 -- main
-
-
-
-
-for i = 1, 21 do
-  -- todo tbd
-end
-
+dig()
+turtle.turnRight()
+dig()
+turtle.turnRight()
+dig()
+turtle.turnRight()
+dig()
